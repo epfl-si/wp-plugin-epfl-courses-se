@@ -245,7 +245,7 @@ function updateDB(){
 
 function executeSQL(){
 
-	$result = executeSQL();
+	$result = executeSQLString();
 	
 	return $result;
 

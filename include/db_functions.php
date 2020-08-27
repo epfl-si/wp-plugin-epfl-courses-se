@@ -572,7 +572,7 @@ function getCloudKeywords(){
 add_action('epfl_courses_se_ajax_getCloudKeywords','getCloudKeywords');
 add_action('epfl_courses_se_ajax_nopriv_getCloudKeywords','getCloudKeywords');
 
-function executeSQL($sql){
+function executeSQLString($sql){
 	global $wpdb;
 	
 	if ( $wpdb->query( $sql ) === false )
