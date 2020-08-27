@@ -143,6 +143,18 @@ if(isset($_POST["updateDB_button"]) && check_admin_referer('updateDB_button_clic
 	}
 }
 
+if(isset($_POST["executeSQL_button"]) && check_admin_referer('executeSQL_button_clicked')) {
+	if(strlen($_POST['sql']) > 0){
+        echo "dokončeno";
+        $result = executeSQL($_POST['sql']);
+		if($result===true){
+			echo '<div id="message" class="updated fade"><p>Init done !</p></div>';
+		}else{
+			echo '<div id="message" class="updated fade"><p>Error during init !'.$result.'</p></div>';
+		}
+    }
+}
+
 if(isset($_POST["downloadCSV_button"]) && check_admin_referer('downloadCSV_button_clicked')) {
 	downloadCoursesDataCSV();
 }
@@ -193,6 +205,16 @@ wp_nonce_field('updateDB_button_clicked');
 echo '<input type="hidden" value="true" name="updateDB_button" />';
 submit_button('Start update !');
 echo '</form>';
+echo '</div>';
+
+echo '<div style="border:1px solid lightgrey;padding:10px;">';
+echo '<h4>Execute SQL</h4>';
+echo '<form action="admin.php?page=epflcse-admin" method="post" enctype="multipart/form-data">';
+wp_nonce_field('executeSQL_button_clicked');
+echo '<textarea name="sql" rows="5" cols="60"></textarea>';
+echo '<input type="submit" value="Execute !" name="executeSQL_button" class="button button-primary" />';
+echo '</form>';
+echo '<a href="'.plugin_dir_url(__DIR__).'csv/update_data.log" target="_blank">log file</a>';
 echo '</div>';
 
 ?>

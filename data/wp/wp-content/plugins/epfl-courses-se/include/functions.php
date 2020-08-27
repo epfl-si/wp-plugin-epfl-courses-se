@@ -243,4 +243,12 @@ function updateDB(){
 	return $result;
 }
 
+function executeSQL(){
+
+	$result = executeSQL();
+	
+	return $result;
+
+}
+
 ?>
