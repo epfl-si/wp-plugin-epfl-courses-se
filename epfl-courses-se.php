@@ -2,7 +2,7 @@
 /**
  * Plugin Name: EPFL Courses Search Engine plugin
  * Description: Plugin to display and search EPFL courses
- * Version: 0.3
+ * Version: 0.4
  * Author: CAPE - Ludovic Bonivento
  * Copyright: Copyright (c) 2019 Ecole Polytechnique Federale de Lausanne, Switzerland
 */

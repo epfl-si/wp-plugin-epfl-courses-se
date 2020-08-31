@@ -243,9 +243,12 @@ function updateDB(){
 	return $result;
 }
 
-function executeSQL(){
+function executeSQL($sqlString){
 
-	$result = executeSQLString();
+	//remove escapes backslash
+	$sqlString = stripcslashes($sqlString);
+	
+	$result = executeSQLString($sqlString);
 	
 	return $result;
 

@@ -145,7 +145,6 @@ if(isset($_POST["updateDB_button"]) && check_admin_referer('updateDB_button_clic
 
 if(isset($_POST["executeSQL_button"]) && check_admin_referer('executeSQL_button_clicked')) {
 	if(strlen($_POST['sql']) > 0){
-        echo "dokončeno";
         $result = executeSQL($_POST['sql']);
 		if($result===true){
 			echo '<div id="message" class="updated fade"><p>Init done !</p></div>';
@@ -214,7 +213,6 @@ wp_nonce_field('executeSQL_button_clicked');
 echo '<textarea name="sql" rows="5" cols="60"></textarea>';
 echo '<input type="submit" value="Execute !" name="executeSQL_button" class="button button-primary" />';
 echo '</form>';
-echo '<a href="'.plugin_dir_url(__DIR__).'csv/update_data.log" target="_blank">log file</a>';
 echo '</div>';
 
 ?>
