@@ -17,7 +17,7 @@ function years_callback() {
 	
 	$settings = (array) get_option( 'epflcse-settings' );
 	$field = "years";
-	$value = esc_attr( $settings[$field] );
+	$value = esc_attr( $settings[$field] ?? null );
 	
 	echo "<input type='text' name='epflcse-settings[$field]' value='$value' />";
 }
@@ -25,7 +25,7 @@ function section_callback() {
 	
 	$settings = (array) get_option( 'epflcse-settings' );
 	$field = "section";
-	$value = esc_attr( $settings[$field] );
+	$value = esc_attr( $settings[$field] ?? null );
 	
 	echo "<input type='text' name='epflcse-settings[$field]' value='$value' />";
 }
@@ -33,18 +33,18 @@ function use_polyperspectives_callback() {
 	
 	$settings = (array) get_option( 'epflcse-settings' );
 	$field = "use_polyperspectives";
-	$value = esc_attr( $settings[$field] );
+	$value = esc_attr( $settings[$field] ?? null );
 ?>
-	<input type='checkbox' name='epflcse-settings[use_polyperspectives]' <?php checked( $settings['use_polyperspectives'], 1 ); ?> value='1'/>
+	<input type='checkbox' name='epflcse-settings[use_polyperspectives]' <?php checked( $settings['use_polyperspectives'] ?? null, 1 ); ?> value='1'/>
 <?php
 }
 function use_keywords_callback() {
 	
 	$settings = (array) get_option( 'epflcse-settings' );
 	$field = "use_keywords";
-	$value = esc_attr( $settings[$field] );
+	$value = esc_attr( $settings[$field] ?? null );
 ?>
-	<input type='checkbox' name='epflcse-settings[use_keywords]' <?php checked( $settings['use_keywords'], 1 ); ?> value='1'/>
+	<input type='checkbox' name='epflcse-settings[use_keywords]' <?php checked( $settings['use_keywords'] ?? null, 1 ); ?> value='1'/>
 <?php
 }
 
