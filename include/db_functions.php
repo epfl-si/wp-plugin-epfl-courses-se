@@ -254,10 +254,10 @@ function getCoursePolyperspectives($course_code){
 function getFilteredCourses($semesters = null,$polyperspectives = null,$keywords = null,$teachers = null,$languages = null){
 
 	global $wpdb;
-	    
-    $semArray = $_POST['semesters'];
-    $polArray = $_POST['polyperspectives'];
-    $langArray = $_POST['languages'];
+
+    $semArray = array_key_exists('semesters', $_POST) ? $_POST['semesters'] : [];
+    $polArray = array_key_exists('polyperspectives', $_POST) ? $_POST['polyperspectives'] : [];
+    $langArray = array_key_exists('languages', $_POST) ? $_POST['languages'] : [];
     $teachers = $_POST['teachers'];
     $keywords = $_POST['keywords'];
     
