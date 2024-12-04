@@ -2,7 +2,7 @@
 /**
  * Plugin Name: EPFL Courses Search Engine plugin
  * Description: Plugin to display and search EPFL courses
- * Version: 0.4
+ * Version: 0.5
  * Author: CAPE - Ludovic Bonivento
  * Copyright: Copyright (c) 2019 Ecole Polytechnique Federale de Lausanne, Switzerland
 */
@@ -25,14 +25,14 @@ function plugin_uninstall() {
 /************ LOAD CSS & JS ********************/
 function load_plugin_css() {
     wp_enqueue_style( 'default-css', plugins_url( '/css/default.css', __FILE__ ));
-    wp_enqueue_style( 'jqcloud-css', plugins_url('/css/jqcloud.css', __FILE__ ));   
-    wp_enqueue_style('autocomplete',plugins_url( '/css/auto-complete.css', __FILE__ ));    
+    wp_enqueue_style( 'jqcloud-css', plugins_url('/css/jqcloud.css', __FILE__ ));
+    wp_enqueue_style('autocomplete',plugins_url( '/css/auto-complete.css', __FILE__ ));
 }
 add_action( 'wp_enqueue_scripts', 'load_plugin_css' );
 
 function load_plugin_js() {
-	
-	wp_enqueue_script('auto-complete',plugins_url( '/js/auto-complete.js', __FILE__ ));//,array('epfl-js-jquery'));    
+
+	wp_enqueue_script('auto-complete',plugins_url( '/js/auto-complete.js', __FILE__ ));//,array('epfl-js-jquery'));
 	wp_enqueue_script('jqcloud-js', plugins_url( '/js/jqcloud.js', __FILE__ ),array('epfl-js-jquery'));
 	wp_localize_script( 'my_ajax_script', 'my_ajax_url', admin_url( 'admin-ajax.php' ) );
 
@@ -40,7 +40,7 @@ function load_plugin_js() {
 add_action('wp_enqueue_scripts','load_plugin_js');
 
 /************ ADMIN MENU PAGE ********************/
-  
+
 // Hook for adding admin menu
 add_action('admin_menu', 'epflcse_plugin_create_menu');
 
@@ -48,7 +48,7 @@ add_action('admin_menu', 'epflcse_plugin_create_menu');
 
 // action function for above hook
 function epflcse_plugin_create_menu() {
-    
+
     // Add a new top-level menu (ill-advised):
     add_menu_page(__('EPFLCoursesSE','epflcse-plugin-menu'), __('EPFLCoursesSE','epflcse-plugin-menu'), 'manage_options', 'epflcse-admin', 'load_admin_menu_page' );
 }
